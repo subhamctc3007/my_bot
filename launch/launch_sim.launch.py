@@ -31,7 +31,16 @@ def generate_launch_description():
         output='screen',
         prefix='xterm -e',
     )
+
+    rviz_config_file = os.path.join(get_package_share_directory(package_name), 'config','view_bot.rviz')
+    rviz = Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            output='screen',
+            arguments=['-d', rviz_config_file]
+        )
     
     return LaunchDescription(
-        [rsp, gazebo, spawn_entity, teleop]
+        [teleop, rsp, gazebo, spawn_entity]
     )

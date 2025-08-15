@@ -172,7 +172,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /laser_controller/out
+        Value: /scan
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -222,7 +222,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 14.832971572875977
+      Distance: 7.8278326988220215
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -237,10 +237,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9753976464271545
+      Pitch: 0.4703977108001709
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.128579616546631
+      Yaw: 5.758580207824707
     Saved: ~
 Window Geometry:
   Displays:
@@ -258,5 +258,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1908
-  X: -32
-  Y: -32
+  X: 0
+  Y: 0
