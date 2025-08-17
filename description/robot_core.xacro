@@ -35,7 +35,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
     </joint>
 
-    <link name='base_footprint'>
+    <link name="base_footprint">
     </link>
 
     <!-- CHASSIS LINK -->
@@ -64,7 +64,7 @@
         </xacro:inertial_box>
     </link>
 
-    <gazebo reference='chassis'>
+    <gazebo reference="chassis">
         <material>Gazebo/white</material>
     </gazebo>
 
@@ -93,7 +93,7 @@
         </xacro:inertial_cylinder>
     </link>
 
-    <gazebo reference='left_wheel'>
+    <gazebo reference="left_wheel">
         <material>Gazebo/Blue</material>
     </gazebo>
 
@@ -122,7 +122,7 @@
         </xacro:inertial_cylinder>
     </link>
 
-    <gazebo reference='right_wheel'>
+    <gazebo reference="right_wheel">
         <material>Gazebo/Blue</material>
     </gazebo>
 
@@ -150,7 +150,7 @@
         </xacro:inertial_sphere>
     </link>
 
-    <gazebo reference='castor_wheel'>
+    <gazebo reference="castor_wheel">
         <material>Gazebo/Black</material>
         <mu1 value="0.001"/>
         <mu2 value="0.001"/>

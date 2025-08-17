@@ -30,6 +30,10 @@ def generate_launch_description():
         name='teleop_twist_keyboard',
         output='screen',
         prefix='xterm -e',
+        remappings=[
+            ('cmd_vel', 'diff_drive_controller/cmd_vel_unstamped')
+        ],
+        
     )
 
     rviz_config_file = os.path.join(get_package_share_directory(package_name), 'config','view_bot.rviz')
@@ -41,6 +45,25 @@ def generate_launch_description():
             arguments=['-d', rviz_config_file]
         )
     
+    diff_drive_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_drive_controller"],
+    )
+
+    joint_state_broadcaster_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"],
+    )
+
     return LaunchDescription(
-        [teleop, rsp, gazebo, spawn_entity]
+        [rsp, 
+         gazebo, 
+         spawn_entity,
+         diff_drive_controller,
+         joint_state_broadcaster_controller,
+         teleop,
+         rviz   
+        ]
     )
