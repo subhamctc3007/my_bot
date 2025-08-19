@@ -31,7 +31,7 @@ def generate_launch_description():
         output='screen',
         prefix='xterm -e',
         remappings=[
-            ('cmd_vel', 'diff_drive_controller/cmd_vel_unstamped')
+            ('cmd_vel', 'teleop/cmd_vel'),
         ],
         
     )
@@ -42,7 +42,7 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             output='screen',
-            # arguments=['-d', rviz_config_file]
+            arguments=['-d', rviz_config_file]
         )
     
     diff_drive_controller = Node(
@@ -64,5 +64,6 @@ def generate_launch_description():
          diff_drive_controller,
          joint_state_broadcaster_controller,
          teleop,
+         rviz,
         ]
     )

@@ -1,0 +1,5 @@
+For Launching the Simualion world
+ros2 launch my_bot launch_sim.launch.py world:=/home/subham/ros2_ws/src/my_bot/worlds/space.world
+
+For Slam Toolbox
+ros2 launch slam_toolbox online_async_launch.py params_file:=/home/subham/ros2_ws/src/my_bot/config/mapper_params_online_async.yaml use_sim_time:=true
