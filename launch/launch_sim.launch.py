@@ -16,8 +16,10 @@ def generate_launch_description():
             launch_arguments={'use_sim_time': 'true'}.items()
     )
 
+    gazebo_params_file = os.path.join(get_package_share_directory(package_name), 'config','gazebo_params.yaml')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+            launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file}.items()
     )
 
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
@@ -34,6 +36,17 @@ def generate_launch_description():
             ('cmd_vel', 'teleop/cmd_vel'),
         ],
         
+    )
+
+    twist_mux = Node(
+        package='twist_mux',
+        executable='twist_mux',
+        name='twist_mux',
+        output='screen',
+        parameters=[os.path.join(get_package_share_directory(package_name), 'config', 'twist_mux.yaml')],
+        remappings=[
+            ('cmd_vel_out', 'diff_drive_controller/cmd_vel_unstamped'),
+        ],
     )
 
     rviz_config_file = os.path.join(get_package_share_directory(package_name), 'config','view_bot.rviz')
@@ -64,6 +77,7 @@ def generate_launch_description():
          diff_drive_controller,
          joint_state_broadcaster_controller,
          teleop,
+         twist_mux,
          rviz,
         ]
     )
